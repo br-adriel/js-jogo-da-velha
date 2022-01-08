@@ -1,0 +1,71 @@
+:root {
+  font-size: 16px;
+  --glass-bg: linear-gradient(
+    135deg,
+    rgba(217, 232, 252, 0.7) 0%,
+    rgba(220, 225, 250, 0.7) 100%
+  );
+  --glass-shadow: 0 0 0.3rem rgba(0, 0, 10, 0.2);
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #000;
+}
+
+a:hover {
+  color: #323232;
+}
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgb(239, 250, 249);
+  background: radial-gradient(
+    circle,
+    rgba(239, 250, 249, 1) 0%,
+    rgba(226, 234, 244, 1) 100%
+  );
+}
+
+header {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  text-align: center;
+}
+
+main {
+  flex-grow: 1;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+footer div {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.glass {
+  background: rgb(217, 232, 252);
+  background: var(--glass-bg);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(1rem);
+}
