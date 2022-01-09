@@ -30,47 +30,47 @@
     <title>Jogo da Velha</title>
   </head>
   <body>
-    <header class="glass">
+    <header class="bg-degrade">
       <h1>Jogo da Velha</h1>
     </header>
     <main>
       <div class="jogadores" id="jogadores">
         <div class="jogador" id="jogador-x">
           <div class="acoes">
-            <button id="editar-nome-x" class="glass">
+            <button id="editar-nome-x" class="bg-degrade">
               <i class="fas fa-pen"></i>
             </button>
-            <span class="glass">
-              <i class="fas fa-times cor-1"></i>
+            <span class="bg-degrade">
+              <i class="fas fa-times" id="icone-placar-x"></i>
             </span>
           </div>
-          <div class="pontuacao glass">
+          <div class="pontuacao bg-degrade">
             <p id="nome-x">JOGADOR 1</p>
             <span class="pontos" id="pontos-x">0</span>
           </div>
         </div>
         <div class="jogador" id="jogador-x">
-          <div class="pontuacao glass">
+          <div class="pontuacao bg-degrade">
             <p id="nome-x">JOGADOR 2</p>
             <span class="pontos" id="pontos-x">0</span>
           </div>
           <div class="acoes">
-            <button id="editar-nome-o" class="glass">
+            <button id="editar-nome-o" class="bg-degrade">
               <i class="fas fa-pen"></i>
             </button>
-            <span class="glass">
-              <i class="far fa-circle cor-2"></i>
+            <span class="bg-degrade">
+              <i class="far fa-circle" id="icone-placar-o"></i>
             </span>
           </div>
         </div>
       </div>
 
-      <div class="tabuleiro glass" id="tabuleiro">
+      <div class="tabuleiro bg-degrade" id="tabuleiro">
         <button class="tab usado" id="tab-00">
-          <i class="fas fa-times cor-1"></i>
+          <i class="fas fa-times"></i>
         </button>
         <button class="tab usado" id="tab-01">
-          <i class="far fa-circle cor-2"></i>
+          <i class="far fa-circle"></i>
         </button>
         <button class="tab" id="tab-02"></button>
         <button class="tab" id="tab-10"></button>
@@ -81,7 +81,7 @@
         <button class="tab" id="tab-22"></button>
       </div>
     </main>
-    <footer class="glass">
+    <footer class="bg-degrade">
       <p>Adriel Faria</p>
       <div>
         <a
