@@ -1,15 +1,11 @@
 :root {
   font-size: 16px;
-  --glass-bg: linear-gradient(
+  --bg: linear-gradient(
     135deg,
     rgba(217, 232, 252, 0.7) 0%,
     rgba(220, 225, 250, 0.7) 100%
   );
   --shadow: 0 0 0.2rem rgba(46, 46, 110, 0.2);
-  --color-1: #485696;
-  --color-2: #30bced;
-  --color-3: #679436;
-  --color-4: #E26575;
 }
 
 * {
@@ -155,23 +151,7 @@ footer {
   box-shadow: var(--shadow);
 }
 
-.glass {
+.bg-degrade {
   background: rgb(217, 232, 252);
-  background: var(--glass-bg);
-}
-
-.cor-1 {
-  color: var(--color-1);
-}
-
-.cor-2 {
-  color: var(--color-2);
-}
-
-.cor-3 {
-  color: var(--color-3);
-}
-
-.cor-4 {
-  color: var(--color-4);
+  background: var(--bg);
 }
