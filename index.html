@@ -31,7 +31,52 @@
       <h1>Jogo da Velha</h1>
     </header>
     <main>
-      <div class="tabuleiro" id="tabuleiro"></div>
+      <div class="jogadores" id="jogadores">
+        <div class="jogador" id="jogador-x">
+          <div class="acoes">
+            <button id="editar-nome-x" class="glass">
+              <i class="fas fa-pen"></i>
+            </button>
+            <span class="glass">
+              <i class="fas fa-times cor-1"></i>
+            </span>
+          </div>
+          <div class="pontuacao glass">
+            <p id="nome-x">JOGADOR 1</p>
+            <span class="pontos" id="pontos-x">0</span>
+          </div>
+        </div>
+        <div class="jogador" id="jogador-x">
+          <div class="pontuacao glass">
+            <p id="nome-x">JOGADOR 2</p>
+            <span class="pontos" id="pontos-x">0</span>
+          </div>
+          <div class="acoes">
+            <button id="editar-nome-o" class="glass">
+              <i class="fas fa-pen"></i>
+            </button>
+            <span class="glass">
+              <i class="far fa-circle cor-2"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tabuleiro glass" id="tabuleiro">
+        <button class="tab usado" id="tab-00">
+          <i class="fas fa-times cor-1"></i>
+        </button>
+        <button class="tab usado" id="tab-01">
+          <i class="far fa-circle cor-2"></i>
+        </button>
+        <button class="tab" id="tab-02"></button>
+        <button class="tab" id="tab-10"></button>
+        <button class="tab" id="tab-11"></button>
+        <button class="tab" id="tab-12"></button>
+        <button class="tab" id="tab-20"></button>
+        <button class="tab" id="tab-21"></button>
+        <button class="tab" id="tab-22"></button>
+      </div>
     </main>
     <footer class="glass">
       <p>Adriel Faria</p>
