@@ -1,3 +1,4 @@
+// module de tabuleiro
 const tabuleiro = (() => {
   const _tabuleiro = [
     ["", "", ""],
@@ -86,3 +87,33 @@ const tabuleiro = (() => {
   };
   return { limpar, jogar };
 })();
+
+// fabrica de jogadores
+const Jogador = (nome, simbolo, cor) => {
+  let _nome = nome;
+  let _simbolo = simbolo;
+  let _cor = cor;
+  let _vitorias = 0;
+  const alterarNome = (novoNome) => {
+    _nome = novoNome;
+  };
+  const verNome = () => _nome;
+  const verSimbolo = () => _simbolo;
+  const alterarCor = (novaCor) => {
+    _cor = novaCor;
+  };
+  const verCor = () => _cor;
+  const novaVitoria = () => {
+    _vitorias++;
+  };
+  const verVitorias = () => _vitorias;
+  return {
+    alterarNome,
+    verNome,
+    verSimbolo,
+    alterarCor,
+    verCor,
+    novaVitoria,
+    verVitorias,
+  };
+};
