@@ -82,7 +82,9 @@ const tabuleiro = (() => {
     });
   };
   const jogar = (linha, coluna, simbolo) => {
-    _tabuleiro[linha][coluna] = simbolo;
+    if (_tabuleiro[linha][coluna] === "") {
+      _tabuleiro[linha][coluna] = simbolo;
+    }
     return _verificarVitoria();
   };
   return { limpar, jogar };
