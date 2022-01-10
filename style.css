@@ -69,6 +69,8 @@ main {
   gap: 1rem;
   align-items: flex-start;
   text-align: center;
+  width: 100%;
+  max-width: 400px;
 }
 
 .acoes {
@@ -88,6 +90,7 @@ main {
   display: flex;
   justify-content: space-between;
   gap: 0.5rem;
+  width: 50%;
 }
 
 .jogador .pontuacao {
@@ -97,6 +100,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-grow: 1;
 }
 
 .pontos {
