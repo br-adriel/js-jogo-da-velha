@@ -130,6 +130,7 @@ const Jogador = (nome, simbolo, cor) => {
     _vitorias++;
   };
   const verVitorias = () => _vitorias;
+  const zerarVitorias = () => (_vitorias = 0);
 
   return {
     alterarNome,
@@ -139,6 +140,7 @@ const Jogador = (nome, simbolo, cor) => {
     verCor,
     novaVitoria,
     verVitorias,
+    zerarVitorias,
   };
 };
 
@@ -246,7 +248,23 @@ const tabuleiroHtml = (() => {
   return { limpar };
 })();
 
-const JOGADOR_X = Jogador("Adriel", "X", COR_INICIAL_X);
+(() => {
+  const _btnReiniciar = document.getElementById("btn-reiniciar");
+  _btnReiniciar.addEventListener("click", tabuleiroHtml.limpar);
+
+  const _btnZerar = document.getElementById("btn-zerar");
+  _btnZerar.addEventListener("click", () => {
+    JOGADOR_X.zerarVitorias();
+    JOGADOR_O.zerarVitorias();
+
+    placarHtml.definirPontosX(JOGADOR_X.verVitorias());
+    placarHtml.definirPontosO(JOGADOR_O.verVitorias());
+
+    tabuleiroHtml.limpar();
+  });
+})();
+
+const JOGADOR_X = Jogador("Jogador 1", "X", COR_INICIAL_X);
 const JOGADOR_O = Jogador("Jogador 2", "O", COR_INICIAL_O);
 
 placarHtml.definirNomeX(JOGADOR_X.verNome());
