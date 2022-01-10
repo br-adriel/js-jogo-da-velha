@@ -134,6 +134,32 @@ main {
   background: #fff;
 }
 
+.acoes-jogo {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.acoes-jogo button {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.acoes-jogo button:hover {
+  color: #444;
+}
+
+.acoes-jogo i {
+  font-size: 1.2rem;
+}
+
+.acoes-jogo span {
+  display: none;
+}
+
 footer {
   display: flex;
   justify-content: space-between;
