@@ -194,6 +194,20 @@ const tabuleiroHtml = (() => {
     }
   };
 
+  const _declararVitoria = (vencedor) => {
+    _desabilitarCelulas();
+    vencedor.novaVitoria();
+
+    if (vencedor.verSimbolo() === "X") {
+      placarHtml.definirPontosX(vencedor.verVitorias());
+    } else {
+      placarHtml.definirPontosO(vencedor.verVitorias());
+    }
+
+    modalVencedor.definirNomeVencedor(vencedor.verNome());
+    modalVencedor.mostrar();
+  };
+
   const _clicarCelula = (botao) => {
     if (!botao.classList.contains("usado")) {
       const icone = document.createElement("i");
@@ -209,11 +223,7 @@ const tabuleiroHtml = (() => {
 
         const ganhou = tabuleiro.jogar(linhaJogada, colunaJogada, "X");
         if (ganhou != -1) {
-          console.log("X GANHOU");
-
-          _desabilitarCelulas();
-          JOGADOR_X.novaVitoria();
-          placarHtml.definirPontosX(JOGADOR_X.verVitorias());
+          _declararVitoria(JOGADOR_X);
         }
       } else {
         icone.classList.add("far", "fa-circle");
@@ -224,11 +234,7 @@ const tabuleiroHtml = (() => {
 
         const ganhou = tabuleiro.jogar(linhaJogada, colunaJogada, "O");
         if (ganhou != -1) {
-          console.log("O GANHOU");
-
-          _desabilitarCelulas();
-          JOGADOR_O.novaVitoria();
-          placarHtml.definirPontosO(JOGADOR_O.verVitorias());
+          _declararVitoria(JOGADOR_O);
         }
       }
       _vezDoX = !_vezDoX;
@@ -262,6 +268,22 @@ const tabuleiroHtml = (() => {
 
     tabuleiroHtml.limpar();
   });
+})();
+
+const modalVencedor = (() => {
+  const _fundoModal = document.getElementById("fundo-modal");
+  const _btnContinuar = document.getElementById("btn-continuar");
+  const _nomeVencedor = document.getElementById("nome-vencedor");
+
+  _btnContinuar.addEventListener("click", () => {
+    _fundoModal.style.display = "none";
+    tabuleiroHtml.limpar();
+    _nomeVencedor.innerText = "";
+  });
+
+  const mostrar = () => (_fundoModal.style.display = "flex");
+  const definirNomeVencedor = (nome) => (_nomeVencedor.innerText = nome);
+  return { mostrar, definirNomeVencedor };
 })();
 
 const JOGADOR_X = Jogador("Jogador 1", "X", COR_INICIAL_X);
