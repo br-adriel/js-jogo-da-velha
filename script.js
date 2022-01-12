@@ -374,9 +374,18 @@ const modalForm = (() => {
   return { exibir };
 })();
 
+// exibe ano do footer dinamicamente
+(() => {
+  document.querySelector(
+    "footer p"
+  ).innerText = `Adriel Faria, ${new Date().getFullYear()}`;
+})();
+
+// jogadores
 const JOGADOR_X = Jogador("Jogador 1", "X", COR_INICIAL_X);
 const JOGADOR_O = Jogador("Jogador 2", "O", COR_INICIAL_O);
 
+// exibicao do conetudo inicial dos jogadores
 placarHtml.definirNomeX(JOGADOR_X.verNome());
 placarHtml.definirCorX(JOGADOR_X.verCor());
 placarHtml.definirPontosX(JOGADOR_X.verVitorias());
