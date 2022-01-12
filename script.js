@@ -148,6 +148,7 @@ const Jogador = (nome, simbolo, cor) => {
 const placarHtml = (() => {
   // nodes referentes ao placar do jogador com X
   const _nomeX = document.getElementById("nome-x");
+  const _pontuacaoX = document.querySelector("#jogador-x .pontuacao");
   const _pontosX = document.getElementById("pontos-x");
   const _btnEditarX = document.getElementById("editar-x");
   const _iconeX = document.getElementById("icone-placar-x");
@@ -162,6 +163,7 @@ const placarHtml = (() => {
 
   // nodes referentes ao placar do jogador com O
   const _nomeO = document.getElementById("nome-o");
+  const _pontuacaoO = document.querySelector("#jogador-o .pontuacao");
   const _pontosO = document.getElementById("pontos-o");
   const _btnEditarO = document.getElementById("editar-o");
   const _iconeO = document.getElementById("icone-placar-o");
@@ -184,6 +186,16 @@ const placarHtml = (() => {
     _btnEditarO.disabled = false;
   };
 
+  const destacarX = () => {
+    _pontuacaoX.style.border = `solid 2px ${JOGADOR_X.verCor()}`;
+    _pontuacaoO.style.border = "none";
+  };
+
+  const destacarO = () => {
+    _pontuacaoO.style.border = `solid 2px ${JOGADOR_O.verCor()}`;
+    _pontuacaoX.style.border = "none";
+  };
+
   return {
     definirNomeX,
     definirPontosX,
@@ -193,6 +205,8 @@ const placarHtml = (() => {
     definirCorO,
     desabilitarEditar,
     habilitarEditar,
+    destacarX,
+    destacarO,
   };
 })();
 
@@ -247,6 +261,8 @@ const tabuleiroHtml = (() => {
         if (ganhou != -1) {
           _declararVitoria(JOGADOR_X);
         }
+
+        placarHtml.destacarO();
       } else {
         icone.classList.add("far", "fa-circle");
         icone.style.color = JOGADOR_O.verCor();
@@ -258,6 +274,8 @@ const tabuleiroHtml = (() => {
         if (ganhou != -1) {
           _declararVitoria(JOGADOR_O);
         }
+
+        placarHtml.destacarX();
       }
       _vezDoX = !_vezDoX;
     }
@@ -366,3 +384,5 @@ placarHtml.definirPontosX(JOGADOR_X.verVitorias());
 placarHtml.definirNomeO(JOGADOR_O.verNome());
 placarHtml.definirCorO(JOGADOR_O.verCor());
 placarHtml.definirPontosO(JOGADOR_O.verVitorias());
+
+placarHtml.destacarX();
