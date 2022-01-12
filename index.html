@@ -38,7 +38,7 @@
       <div class="jogadores" id="jogadores">
         <div class="jogador" id="jogador-x">
           <div class="acoes">
-            <button id="editar-nome-x" class="bg-degrade">
+            <button id="editar-x" class="bg-degrade">
               <i class="fas fa-pen"></i>
             </button>
             <span class="bg-degrade">
@@ -56,7 +56,7 @@
             <span class="pontos" id="pontos-o"></span>
           </div>
           <div class="acoes">
-            <button id="editar-nome-o" class="bg-degrade">
+            <button id="editar-o" class="bg-degrade">
               <i class="fas fa-pen"></i>
             </button>
             <span class="bg-degrade">
@@ -118,47 +118,24 @@
       </div>
     </div>
 
-    <div class="fundo-modal" id="modal-editar-x">
+    <div class="fundo-modal" id="modal-editar">
       <div class="modal modal-editar bg-degrade">
         <div class="header">
           <h2>Editar jogador</h2>
-          <button><i class="fas fa-times"></i></button>
+          <button id="fechar-modal-editar"><i class="fas fa-times"></i></button>
         </div>
-        <form id="form-editar-nome-x">
-          <label for="input-nome-x">Nome do jogador:</label>
+        <form id="form-editar-nome">
+          <label for="input-nome">Nome do jogador:</label>
           <div class="control">
-            <input type="text" name="nome-x" id="input-nome-x" />
-            <button>Salvar</button>
+            <input type="text" name="nome" id="input-nome" required />
+            <button type="submit">Salvar</button>
           </div>
         </form>
-        <form id="form-editar-cor-x">
-          <label for="input-cor-x">Cor para o X:</label>
+        <form id="form-editar-cor">
+          <label for="input-cor">Cor do símbolo:</label>
           <div class="control">
-            <input type="color" name="cor-x" id="input-cor-x" />
-            <button>Salvar</button>
-          </div>
-        </form>
-      </div>
-    </div>
-
-    <div class="fundo-modal" id="modal-editar-o">
-      <div class="modal modal-editar bg-degrade">
-        <div class="header">
-          <h2>Editar jogador</h2>
-          <button><i class="fas fa-times"></i></button>
-        </div>
-        <form id="form-editar-nome-o">
-          <label for="input-nome-o">Nome do jogador:</label>
-          <div class="control">
-            <input type="text" name="nome-o" id="input-nome-o" />
-            <button>Salvar</button>
-          </div>
-        </form>
-        <form id="form-editar-cor-o">
-          <label for="input-cor-o">Cor para o O:</label>
-          <div class="control">
-            <input type="color" name="cor-o" id="input-cor-o" />
-            <button>Salvar</button>
+            <input type="color" name="cor" id="input-cor" />
+            <button type="submit">Salvar</button>
           </div>
         </form>
       </div>

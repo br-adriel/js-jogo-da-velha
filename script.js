@@ -149,9 +149,13 @@ const placarHtml = (() => {
   // nodes referentes ao placar do jogador com X
   const _nomeX = document.getElementById("nome-x");
   const _pontosX = document.getElementById("pontos-x");
+  const _btnEditarX = document.getElementById("editar-x");
   const _iconeX = document.getElementById("icone-placar-x");
   _iconeX.style.color = COR_INICIAL_X;
 
+  _btnEditarX.addEventListener("click", () => {
+    modalForm.exibir(JOGADOR_X);
+  });
   const definirNomeX = (nome) => (_nomeX.innerText = nome);
   const definirPontosX = (pontos) => (_pontosX.innerText = pontos);
   const definirCorX = (cor) => (_iconeX.style.color = cor);
@@ -159,12 +163,26 @@ const placarHtml = (() => {
   // nodes referentes ao placar do jogador com O
   const _nomeO = document.getElementById("nome-o");
   const _pontosO = document.getElementById("pontos-o");
+  const _btnEditarO = document.getElementById("editar-o");
   const _iconeO = document.getElementById("icone-placar-o");
   _iconeO.style.color = COR_INICIAL_O;
 
+  _btnEditarO.addEventListener("click", () => {
+    modalForm.exibir(JOGADOR_O);
+  });
   const definirNomeO = (nome) => (_nomeO.innerText = nome);
   const definirPontosO = (pontos) => (_pontosO.innerText = pontos);
   const definirCorO = (cor) => (_iconeO.style.color = cor);
+
+  const desabilitarEditar = () => {
+    _btnEditarX.disabled = true;
+    _btnEditarO.disabled = true;
+  };
+
+  const habilitarEditar = () => {
+    _btnEditarX.disabled = false;
+    _btnEditarO.disabled = false;
+  };
 
   return {
     definirNomeX,
@@ -173,6 +191,8 @@ const placarHtml = (() => {
     definirNomeO,
     definirPontosO,
     definirCorO,
+    desabilitarEditar,
+    habilitarEditar,
   };
 })();
 
@@ -196,6 +216,7 @@ const tabuleiroHtml = (() => {
 
   const _declararVitoria = (vencedor) => {
     _desabilitarCelulas();
+    placarHtml.habilitarEditar();
     vencedor.novaVitoria();
 
     if (vencedor.verSimbolo() === "X") {
@@ -213,6 +234,7 @@ const tabuleiroHtml = (() => {
       const icone = document.createElement("i");
       const linhaJogada = parseInt(botao.id.split("-")[1]);
       const colunaJogada = parseInt(botao.id.split("-")[2]);
+      placarHtml.desabilitarEditar();
 
       if (_vezDoX) {
         icone.classList.add("fas", "fa-times");
@@ -246,6 +268,7 @@ const tabuleiroHtml = (() => {
       _celulas[i].innerText = "";
       _celulas[i].classList.remove("usado");
       _celulas[i].disabled = false;
+      placarHtml.habilitarEditar();
     }
 
     tabuleiro.limpar();
@@ -284,6 +307,53 @@ const modalVencedor = (() => {
   const mostrar = () => (_fundoModal.style.display = "flex");
   const definirNomeVencedor = (nome) => (_nomeVencedor.innerText = nome);
   return { mostrar, definirNomeVencedor };
+})();
+
+const modalForm = (() => {
+  let _jogador;
+  const _fundoModal = document.getElementById("modal-editar");
+  const _formNome = document.getElementById("form-editar-nome");
+  const _formCor = document.getElementById("form-editar-cor");
+  const _inputNome = document.getElementById("input-nome");
+  const _inputCor = document.getElementById("input-cor");
+  const _btnFecharModal = document.getElementById("fechar-modal-editar");
+
+  _btnFecharModal.addEventListener("click", () => {
+    _fundoModal.style.display = "none";
+    _inputNome.value = "";
+    _inputCor.value = "#000000";
+  });
+  _formNome.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    _jogador.alterarNome(_inputNome.value);
+    if (_jogador.verSimbolo() === "X") {
+      placarHtml.definirNomeX(_inputNome.value);
+    } else {
+      placarHtml.definirNomeO(_inputNome.value);
+    }
+  });
+
+  _formCor.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    _jogador.alterarCor(_inputCor.value);
+    if (_jogador.verSimbolo() === "X") {
+      placarHtml.definirCorX(_inputCor.value);
+    } else {
+      placarHtml.definirCorO(_inputCor.value);
+    }
+  });
+
+  const exibir = (jogador) => {
+    _fundoModal.style.display = "flex";
+    _jogador = jogador;
+
+    _inputNome.value = jogador.verNome();
+    _inputCor.value = jogador.verCor();
+  };
+
+  return { exibir };
 })();
 
 const JOGADOR_X = Jogador("Jogador 1", "X", COR_INICIAL_X);
