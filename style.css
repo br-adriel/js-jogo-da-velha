@@ -191,8 +191,6 @@ footer {
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.3);
-  -webkit-backdrop-filter: blur(0.1rem);
-  backdrop-filter: blur(0.1rem);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -213,15 +211,15 @@ footer {
   max-width: 500px;
 }
 
-.modal h2 {
+.modal-vencedor h2 {
   font-size: 3rem;
 }
 
-.modal h3 {
+.modal-vencedor h3 {
   font-size: 1.7rem;
 }
 
-.modal i {
+.modal-vencedor i {
   font-size: 8rem;
   margin: 0.5rem;
   background: -webkit-gradient(
@@ -239,7 +237,6 @@ footer {
 }
 
 .modal button {
-  margin-top: 1rem;
   font-size: 1.1rem;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -249,6 +246,60 @@ footer {
 
 .modal button:hover {
   background: #fff;
+}
+
+.modal-vencedor button {
+  margin-top: 1rem;
+}
+
+.modal-editar .header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-editar .header button {
+  background: none;
+}
+
+.modal-editar form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0.25rem 0;
+}
+
+.modal-editar .control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.control input {
+  flex-grow: 1;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.5rem 0 0 0.5rem;
+  font-size: 1.1rem;
+  background: #eee;
+  transition: 0.3s background;
+}
+
+input:focus {
+  outline: none;
+  background: #fff;
+}
+
+.modal-editar input[type="color"] {
+  padding: 0.25rem;
+  height: 2.6rem;
+}
+
+.modal-editar form button {
+  border-radius: 0 0.5rem 0.5rem 0;
 }
 
 @media (min-width: 600px) {

@@ -110,11 +110,57 @@
 
     <!-- Modal de vitoria -->
     <div class="fundo-modal" id="fundo-modal">
-      <div class="modal bg-degrade">
+      <div class="modal modal-vencedor bg-degrade">
         <h2>Parabéns!</h2>
         <i class="fas fa-trophy"></i>
         <h3><span id="nome-vencedor"></span> venceu!</h3>
         <button id="btn-continuar">Continuar</button>
+      </div>
+    </div>
+
+    <div class="fundo-modal" id="modal-editar-x">
+      <div class="modal modal-editar bg-degrade">
+        <div class="header">
+          <h2>Editar jogador</h2>
+          <button><i class="fas fa-times"></i></button>
+        </div>
+        <form id="form-editar-nome-x">
+          <label for="input-nome-x">Nome do jogador:</label>
+          <div class="control">
+            <input type="text" name="nome-x" id="input-nome-x" />
+            <button>Salvar</button>
+          </div>
+        </form>
+        <form id="form-editar-cor-x">
+          <label for="input-cor-x">Cor para o X:</label>
+          <div class="control">
+            <input type="color" name="cor-x" id="input-cor-x" />
+            <button>Salvar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="fundo-modal" id="modal-editar-o">
+      <div class="modal modal-editar bg-degrade">
+        <div class="header">
+          <h2>Editar jogador</h2>
+          <button><i class="fas fa-times"></i></button>
+        </div>
+        <form id="form-editar-nome-o">
+          <label for="input-nome-o">Nome do jogador:</label>
+          <div class="control">
+            <input type="text" name="nome-o" id="input-nome-o" />
+            <button>Salvar</button>
+          </div>
+        </form>
+        <form id="form-editar-cor-o">
+          <label for="input-cor-o">Cor para o O:</label>
+          <div class="control">
+            <input type="color" name="cor-o" id="input-cor-o" />
+            <button>Salvar</button>
+          </div>
+        </form>
       </div>
     </div>
   </body>
